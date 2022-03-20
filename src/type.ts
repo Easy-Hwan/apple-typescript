@@ -43,7 +43,7 @@ typeUnionObj = { key: "string" };
 type myType = { key: boolean };
 const myVar: myType = { key: true };
 
-// Enum type :
+// Enum type : 열거형 타입으로 선언된 값만 변수에 할당하도록 강제한다.
 enum gender {
   male,
   female,
@@ -52,7 +52,25 @@ enum enumNumber {
   one = 1,
   two = 2,
 }
-
+//
+const enumVar: gender = gender.female;
 let enumObj: { gender: gender; number: enumNumber };
 enumObj = { gender: gender.male, number: enumNumber.two };
 // => { gender : male, number : 2 }
+
+//  Function : 함수
+
+// VoidFn : 반환값이 없는 함수
+function myVoidFn(name: string): void {
+  console.log(`Hello ${name}`);
+}
+// 축약형
+myVoidFn: (name: string): void => console.log(`${name} Hello`);
+// 제네릭 지정
+
+// ReturnFn : 반환값이 있는 함수
+function myFn(name: string): string {
+  return `Hello ${name}`;
+}
+// 축약형
+myFn2: (name: string): string => `Hello ${name}`;
