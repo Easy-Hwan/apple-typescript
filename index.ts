@@ -3,15 +3,18 @@ class Person {
   myLastName: string;
   myHeight: number;
   myWeight: number;
+  myBmi: number;
   constructor() {
     this.myName = "jihwan";
     this.myLastName = "lee";
     this.myHeight = 180;
     this.myWeight = 75;
   }
-  getBmi = (): number => this.myWeight / (this.myHeight / 100) ** 2;
+  getBmi = (): number =>
+    (this.myBmi = this.myWeight / (this.myHeight / 100) ** 2);
+  printBmi = (): void => console.log(`My bmi : ${this.myBmi}`);
 }
 
 let jihwan = new Person();
-// jihwan.myName = 1004 // type error
-console.log(jihwan.getBmi()); // => 23.148
+jihwan.getBmi();
+jihwan.printBmi();
